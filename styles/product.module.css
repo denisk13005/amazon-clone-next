@@ -79,6 +79,17 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: black;
+}
+.mobileIcon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 20%;
+}
+.basketIcon {
+  width: 90%;
+  height: 90%;
 }
 /* 
 
@@ -91,15 +102,8 @@
         display: none;
       }
     }
-    .mobileICon {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      width: 20%;
-      .basketIcon {
-        width: 90%;
-        height: 90%;
-      }
+    
+     
       @media screen and (min-width: 900px) {
         display: none;
       }

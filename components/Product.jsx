@@ -4,6 +4,7 @@ import React from "react";
 import { MdAddShoppingCart } from "react-icons/md";
 // import PropTypes from "prop-types"
 import styles from "../styles/product.module.css";
+import Image from "next/image";
 
 /**
  *
@@ -40,13 +41,13 @@ const Product = ({ description, price, smallPrice, stars, img, id, width }) => {
       </div>
       <div className={styles.imgAndButton}>
         <div className={styles.imgContainer}>
-          <img src={img} alt="" className="product__image" />
+          <img src={img} alt="" className="product__image" layout="fill" />
         </div>
         {}
         <button className={styles.button} onClick={addBasket}>
           <span className={styles.desktopMsg}>Ajouter au panier</span>{" "}
-          <span className="mobileICon">
-            <MdAddShoppingCart className="basketIcon" />
+          <span className={styles.mobileIcon}>
+            <MdAddShoppingCart className={styles.basketIcon} />
           </span>
         </button>
       </div>
