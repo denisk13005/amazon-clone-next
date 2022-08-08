@@ -1,0 +1,626 @@
+/* .header {
+  width: 100vw;
+  height: 7vh;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding-top: 2px;
+}
+.leftOptions {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin-left: 0;
+  height: 100%;
+  margin-right: 15px;
+}
+
+.hambAndLogo {
+  display: flex;
+  align-items: center;
+}
+.hambContainer {
+  width: 25px;
+  display: none;
+}
+
+.hambIcon {
+  height: 100%;
+  width: 100%;
+  color: white;
+  position: relative;
+  left: 2px;
+}
+.logo {
+  width: 100px;
+  color: white;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  width: 61.7vw;
+  height: 4.3vh;
+  margin-left: 10.1vw;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+}
+.searchImgContainer {
+  width: 5vh;
+  height: 100%;
+  background-color: #ff9900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchImgContainer .magnifyingGlass {
+  font-weight: 100;
+  cursor: pointer;
+  font-size: 24px;
+  color: black;
+}
+@media (max-width: 1500px) {
+  .header {
+    height: 4%;
+  }
+  .leftOptions {
+    height: 100%;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+  }
+  .hambContainer {
+    display: block;
+  }
+  .logo {
+    width: 70px;
+  }
+  .search {
+    width: 97%;
+    height: 45px;
+    margin-left: 51%;
+    transform: translate(-50%);
+  }
+  .searchImgContainer {
+    width: 60px;
+    border-radius: 5px;
+    position: relative;
+    right: 3px;
+  }
+}
+
+/*
+  
+  
+
+  
+ 
+    
+   
+    
+        @media screen and (max-width: 1500px) {
+         
+        }
+      }
+     
+    }
+  }
+  .rightOptions {
+    color: white;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    height: 100%;
+    flex-grow: 1;
+    width: auto;
+
+    @media screen and (max-width: 1500px) {
+      min-width: 200px;
+      height: 6vh;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .userDescriptionContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      width: auto;
+      word-wrap: nowrap;
+    }
+    .bonjour {
+      word-wrap: nowrap;
+      @media screen and (max-width: 1500px) {
+        display: none;
+      }
+    }
+    .user {
+      font-weight: bold;
+      width: max-content;
+      @media screen and (max-width: 1500px) {
+        position: absolute;
+        top: 50%;
+        margin: 0;
+        right: 9vw;
+        font-weight: bold;
+        transform: translateY(-50%);
+        font-size: 14px;
+      }
+    }
+
+    .userIconContainer {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      @media screen and (min-width: 1500px) {
+        display: none;
+      }
+      .userIcon {
+        @media screen and (max-width: 1500px) {
+          position: absolute;
+          left: 90%;
+          transform: translate(-50%);
+          width: 6vw;
+          height: 3vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    .compte {
+      @media screen and (max-width: 1500px) {
+        display: none;
+      }
+    }
+
+    &__option {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0px 5px 0px 5px;
+      &:hover {
+        border: 1px solid white;
+        padding: 0px 4px 0px 4px;
+      }
+      @media screen and (max-width: 1500px) {
+        &:hover {
+          border: none;
+          padding: 0px 5px 0px 5px;
+        }
+      }
+
+      cursor: pointer;
+      strong {
+        font-weight: 900;
+      }
+
+      &:hover .cartItems {
+        margin-right: -1px;
+      }
+      &--user {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      &--return {
+        @media screen and (max-width: 1500px) {
+          display: none;
+        }
+      }
+      &--basket {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: start;
+        .imgContainer {
+          position: relative;
+          @media screen and (max-width: 1500px) {
+            position: absolute;
+            right: 18px;
+            top: 0px;
+          }
+
+          .cartItems {
+            position: absolute;
+            left: 55%;
+            color: #ff9900;
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            top: 2px;
+          }
+        }
+        strong {
+          margin-bottom: 0.7vh;
+        }
+        .panier {
+          @media screen and (max-width: 1500px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+} */
+.header {
+  width: 100vw;
+  height: 7vh;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding-top: 2px;
+}
+
+@media (max-width: 1500px) {
+  .header {
+    height: 4%;
+  }
+}
+
+.header .leftOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 70%;
+  margin-left: 0;
+  height: 100%;
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .leftOptions {
+    height: 100%;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+  }
+}
+
+.header .leftOptions .hambAndLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.header .leftOptions .hambAndLogo .hambContainer {
+  width: 25px;
+}
+
+@media screen and (min-width: 1500px) {
+  .header .leftOptions .hambAndLogo .hambContainer {
+    display: none;
+  }
+}
+
+.header .leftOptions .hambAndLogo .hambContainer .hambIcon {
+  height: 100%;
+  width: 100%;
+  color: white;
+  position: relative;
+  left: 2px;
+}
+
+.header .leftOptions .logo {
+  width: 100px;
+  color: white;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+@media (max-width: 680px) {
+  .header .leftOptions .logo {
+    width: 70px;
+  }
+}
+
+.header .leftOptions .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 61.7vw;
+  height: 4.3vh;
+  margin-left: 10.1vw;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .leftOptions .search {
+    width: 97%;
+    height: 45px;
+    margin-left: 51%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+  }
+}
+
+.header .leftOptions .search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+}
+
+.header .leftOptions .search .searchImgContainer {
+  width: 5vh;
+  height: 100%;
+  background-color: #ff9900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .leftOptions .search .searchImgContainer {
+    width: 60px;
+    border-radius: 5px;
+    position: relative;
+    right: 3px;
+  }
+}
+
+.header .leftOptions .search .magnifyingGlass {
+  width: 50%;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.header .rightOptions {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  -webkit-box-flex: 0.8;
+  -ms-flex-positive: 0.8;
+  flex-grow: 0.8;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptions {
+    min-width: 200px;
+    height: 6vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.header .rightOptions .userDescriptionContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  width: auto;
+  word-wrap: nowrap;
+}
+
+.header .rightOptions .bonjour {
+  word-wrap: nowrap;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptions .bonjour {
+    display: none;
+  }
+}
+
+.header .rightOptionsUser {
+  font-weight: bold;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptionsUser {
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    right: 9vw;
+    font-weight: bold;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 14px;
+  }
+}
+
+.header .rightOptions .userIconContainer {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 1500px) {
+  .header .rightOptions .userIconContainer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptions .userIconContainer .userIcon {
+    position: absolute;
+    left: 90%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 6vw;
+    height: 3vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptions .compte {
+    display: none;
+  }
+}
+
+.header .rightOptions__option {
+  width: max-content;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0px 5px 0px 5px;
+  cursor: pointer;
+}
+
+.header .rightOptions__option:hover {
+  border: 1px solid white;
+  padding: 0px 4px 0px 4px;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptions__option:hover {
+    border: none;
+    /* padding: 0px 5px 0px 5px; */
+  }
+}
+
+.header .rightOptions__option strong {
+  font-weight: 900;
+}
+
+.header .rightOptions__option:hover .cartItems {
+  margin-right: -1px;
+}
+
+.header .rightOptions__optionUser {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptions__optionReturn {
+    display: none;
+  }
+}
+
+.header .rightOptions__optionBasket {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.header .rightOptions__optionBasket .imgContainer {
+  position: relative;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptions__optionBasket .imgContainer {
+    position: absolute;
+    right: 19px;
+    top: 0px;
+  }
+}
+.header .rightOptions__optionBasket .imgContainer .cartIcon {
+  font-size: 42px;
+}
+.header .rightOptions__optionBasket .imgContainer .cartItems {
+  position: absolute;
+  left: 50%;
+  color: #ff9900;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  top: -10px;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .rightOptions__optionBasket .panier {
+    display: none;
+  }
+}

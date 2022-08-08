@@ -3,38 +3,40 @@ import Image from "next/image";
 import Header from "../components/Header";
 import styles from "../styles/Home.module.css";
 import Product from "../components/Product";
+import { GiH2O } from "react-icons/gi";
+import { useState } from "react";
+import { useEffect } from "react";
 
-export default function Home() {
+export default function Home({ best }) {
+  console.log(best.bestsellers.length);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    setProducts(best.bestsellers.splice(0, 45));
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Amazon next clone</title>
         <meta name="description" content="Amazon clone project" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="./favicon.png" />
       </Head>
       <main className={styles.homeMainContainer}>
         <section className={styles.productsContainer}>
           <div className={styles.productRow}>
-            <Product
-              id={1}
-              description={"mmmmmmh c'est super "}
-              price={12}
-              smallPrice={2}
-              stars={3}
-              img={
-                "https://images-eu.ssl-images-amazon.com/images/G/08/digital/video/gateway/placement/launch/RolandGarros/RG_2022_V2HUD_Reactive_XSite_379x304_PV_fr-FR._SY304_CB636920623_.jpg"
-              }
-            />
-            <Product
-              id={2}
-              description={"test"}
-              price={12}
-              smallPrice={1}
-              stars={3}
-              img={
-                "https://m.media-amazon.com/images/I/81vkislowDL._AC_SX352_SY330_.jpg"
-              }
-            />
+            {products &&
+              products.map((product, i) => (
+                <Product
+                  key={product.position}
+                  id={2}
+                  description={product.title}
+                  price={product.price.value}
+                  smallPrice={1}
+                  stars={3}
+                  img={product.image}
+                />
+              ))}
+
+            {/*
             <Product
               id={3}
               description={"test"}
@@ -80,10 +82,20 @@ export default function Home() {
               img={
                 "https://images-eu.ssl-images-amazon.com/images/I/71g8a2BcgRL._AC_UL160_SR160,160_.jpg"
               }
-            />
+            /> */}
           </div>
         </section>
       </main>
     </div>
   );
 }
+export const getServerSideProps = async () => {
+  const data = await fetch(
+    "https://api.rainforestapi.com/request?api_key=71C75272191A49318764879A542638C6&type=bestsellers&url=https://www.amazon.com/s/zgbs/pc/516866"
+  ).then((res) => res.json());
+  return {
+    props: {
+      best: data,
+    },
+  };
+};
