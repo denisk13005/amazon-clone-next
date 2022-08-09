@@ -10,8 +10,9 @@ import Router from "next/router";
 import { GiHamburgerMenu, GiShoppingCart } from "react-icons/gi";
 import { FaRegUser } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
+import Image from "next/image";
 const Header = () => {
-  const [logged, setLogged] = useState(true);
+  const [logged, setLogged] = useState(false);
   const [basketItems, setBasketItems] = useState(0);
   // const navigate = useNavigate();
 
@@ -50,58 +51,64 @@ const Header = () => {
               alt="amazon logo"
             />
           </Link>
-        </div>
-        <div
-          className={styles.search}
-          //  onMouseEnter={closeModal}
-        >
-          <input type="search" />
-          <div className={styles.searchImgContainer}>
-            <AiOutlineSearch className={styles.magnifyingGlass} />
-            {/* <img src={search} alt="search icone" className="magnifyingGlass" /> */}
-          </div>
+          <span className={styles.fr}>.fr</span>
         </div>
       </div>
 
       <nav
-        className={styles.rightOptions}
+        className={styles.nav}
         // onMouseEnter={closeModal}
       >
         {logged ? (
+          <h1>connected</h1>
+        ) : (
+          // <>
+          //   <div
+          //     className={`${styles.rightOptions__option} ${styles.rightOptions__optionUser}`}
+          //     // onMouseEnter={openModal}
+          //   >
+          //     <div className={styles.userDescriptionContainer}>
+          //       <div>
+          //         <span className={styles.bonjour}>Bonjour, </span>
+          //         <span className="user">{user}</span>
+          //       </div>
+
+          //       <div className={styles.userIconContainer}>
+          //         <FaRegUser className={styles.userIcon} />
+          //       </div>
+          //       <span>
+          //         <strong className={styles.compte}>Compte et listes</strong>
+          //       </span>
+          //       <CompteModal
+          //         className={compteModalClassName}
+          //         closeModal={closeModal}
+          //       />
+          //     </div>
+          //   </div>
+          // </>
           <>
             <div
-              className={`${styles.rightOptions__option} ${styles.rightOptions__optionUser}`}
-              // onMouseEnter={openModal}
+              className={styles.rightOptions}
+              // onClick={loggIn}
             >
-              <div className={styles.userDescriptionContainer}>
-                <div>
-                  <span className={styles.bonjour}>Bonjour, </span>
-                  {/* <span className="user">{user}</span> */}
-                </div>
-
-                <div className={styles.userIconContainer}>
-                  <FaRegUser className={styles.userIcon} />
-                </div>
-                <span>
-                  <strong className={styles.compte}>Compte et listes</strong>
-                </span>
-                {/* <CompteModal
-                  className={compteModalClassName}
-                  closeModal={closeModal}
-                /> */}
+              <p className={styles.connect}>Se connecter {">"}</p>
+              <span>
+                <FaRegUser className={styles.userIcon} />
+              </span>
+              <div className={styles.basketContainer}>
+                <Image
+                  src="/basket.png"
+                  alt="basket icon"
+                  width="100%"
+                  height="100%"
+                />
+                <span className={styles.itemsNb}>10</span>
               </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className={styles.rightOptions__option} onClick={loggIn}>
-              Hello Guest <br />
-              <strong>Please LoggIn</strong>
             </div>
           </>
         )}
 
-        <div
+        {/* <div
           className={`${styles.rightOptions__option} ${styles.rightOptions__optionReturn}`}
           // onMouseEnter={closeModal}
         >
@@ -118,8 +125,18 @@ const Header = () => {
             <span className={styles.cartItems}>{basketItems}</span>
           </div>
           <strong className={styles.panier}>Panier</strong>
-        </div>
+        </div> */}
       </nav>
+      <div
+        className={styles.search}
+        //  onMouseEnter={closeModal}
+      >
+        <input type="search" />
+        <div className={styles.searchImgContainer}>
+          <AiOutlineSearch className={styles.magnifyingGlass} />
+          {/* <img src={search} alt="search icone" className="magnifyingGlass" /> */}
+        </div>
+      </div>
     </header>
   );
 };
