@@ -6,31 +6,29 @@
   justify-content: space-between;
   background-color: #202c3a;
   padding: 10px;
-  border: 1px solid red;
 }
 /* Left Options  */
 .leftOptions {
   width: 40%;
-  border: 1px solid blue;
   height: 6vh;
   display: flex;
   align-items: center;
 }
-.hambContainer {
-  /* margin: 10px; */
-}
+
 .hambAndLogo {
   display: flex;
   align-items: center;
 }
 .hambIcon {
   font-size: 24px;
+  cursor: pointer;
 }
 .logo {
   width: 80px;
   height: 25px;
   margin-top: 10px;
   margin-left: 10px;
+  cursor: pointer;
 }
 .fr {
   margin-bottom: 2px;
@@ -54,10 +52,12 @@
   word-wrap: nowrap;
   width: max-content;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .userIcon {
   font-size: 24px;
+  cursor: pointer;
 }
 .basketContainer {
   position: relative;
@@ -67,6 +67,7 @@
   height: 100%;
   padding: 0;
   margin-left: 10px;
+  cursor: pointer;
 }
 .itemsNb {
   color: orange;
@@ -107,6 +108,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  cursor: pointer;
 }
 .magnifyingGlass {
   color: black;
