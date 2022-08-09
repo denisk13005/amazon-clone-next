@@ -131,10 +131,13 @@ const Header = () => {
         className={styles.search}
         //  onMouseEnter={closeModal}
       >
-        <input type="search" />
-        <div className={styles.searchImgContainer}>
+        <input
+          className={styles.searchInput}
+          type="search"
+          placeholder="Rechercher Amazon.fr"
+        />
+        <div className={styles.magnifyingGlassContainer}>
           <AiOutlineSearch className={styles.magnifyingGlass} />
-          {/* <img src={search} alt="search icone" className="magnifyingGlass" /> */}
         </div>
       </div>
     </header>
