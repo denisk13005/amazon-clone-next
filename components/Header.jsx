@@ -140,6 +140,16 @@ const Header = () => {
           <AiOutlineSearch className={styles.magnifyingGlass} />
         </div>
       </div>
+      <div className={styles.choiceContainer}>
+        <span className={styles.span}>Amazon Basics</span>
+        <span className={styles.span}>Ventes Flash</span>
+        <span className={styles.span}>Prime</span>
+        <span className={styles.span}>Meilleures ventes</span>
+        <span className={styles.span}>Dernières Nouveautés</span>
+        <span className={styles.span}>Cuisine et Maison</span>
+        <span className={styles.span}>Livres</span>
+        <span className={styles.span}>High-Tech</span>
+      </div>
     </header>
   );
 };

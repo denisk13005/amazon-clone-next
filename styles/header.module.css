@@ -93,6 +93,8 @@
   outline: none;
   border: none;
   color: black;
+  padding-left: 10px;
+  font-weight: 500;
 }
 .magnifyingGlassContainer {
   position: absolute;
@@ -109,4 +111,25 @@
 .magnifyingGlass {
   color: black;
   font-size: 26px;
+}
+
+/* Choice */
+
+.choiceContainer {
+  position: absolute;
+  bottom: 5px;
+  height: 4vh;
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-color: orange;
+  width: 100%;
+}
+.span {
+  margin-right: 10px;
+  cursor: pointer;
+  min-width: max-content;
+  word-wrap: nowrap;
+}
+.span:hover {
+  color: orange;
 }
