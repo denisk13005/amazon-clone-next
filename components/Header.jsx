@@ -56,76 +56,34 @@ const Header = () => {
       </div>
 
       <nav
-        className={styles.nav}
+        className={styles.rightOptions}
         // onMouseEnter={closeModal}
       >
         {logged ? (
-          <h1>connected</h1>
+          <p>user</p>
         ) : (
-          // <>
-          //   <div
-          //     className={`${styles.rightOptions__option} ${styles.rightOptions__optionUser}`}
-          //     // onMouseEnter={openModal}
-          //   >
-          //     <div className={styles.userDescriptionContainer}>
-          //       <div>
-          //         <span className={styles.bonjour}>Bonjour, </span>
-          //         <span className="user">{user}</span>
-          //       </div>
-
-          //       <div className={styles.userIconContainer}>
-          //         <FaRegUser className={styles.userIcon} />
-          //       </div>
-          //       <span>
-          //         <strong className={styles.compte}>Compte et listes</strong>
-          //       </span>
-          //       <CompteModal
-          //         className={compteModalClassName}
-          //         closeModal={closeModal}
-          //       />
-          //     </div>
-          //   </div>
-          // </>
           <>
-            <div
-              className={styles.rightOptions}
+            <p
+              className={styles.connect}
               // onClick={loggIn}
             >
-              <p className={styles.connect}>Se connecter {">"}</p>
-              <span>
-                <FaRegUser className={styles.userIcon} />
-              </span>
-              <div className={styles.basketContainer}>
-                <Image
-                  src="/basket.png"
-                  alt="basket icon"
-                  width="100%"
-                  height="100%"
-                />
-                <span className={styles.itemsNb}>10</span>
-              </div>
-            </div>
+              Se connecter {">"}
+            </p>
           </>
         )}
-
-        {/* <div
-          className={`${styles.rightOptions__option} ${styles.rightOptions__optionReturn}`}
-          // onMouseEnter={closeModal}
-        >
-          Retours
-          <br />
-          <strong>et Commandes</strong>
+        <span>
+          <FaRegUser className={styles.userIcon} />
+        </span>
+        <div className={styles.basketContainer}>
+          <Image
+            className={styles.basketImg}
+            src="/basket.png"
+            alt="basket icon"
+            width="50%"
+            height="50%"
+          />
+          <span className={styles.itemsNb}>10</span>
         </div>
-        <div
-          className={`${styles.rightOptions__option} ${styles.rightOptions__optionBasket}`}
-          onClick={() => Router.push("/basket")}
-        >
-          <div className={styles.imgContainer}>
-            <GiShoppingCart className={styles.cartIcon} />
-            <span className={styles.cartItems}>{basketItems}</span>
-          </div>
-          <strong className={styles.panier}>Panier</strong>
-        </div> */}
       </nav>
       <div
         className={styles.search}

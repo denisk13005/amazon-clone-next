@@ -36,16 +36,14 @@
 }
 
 /* Right Options  */
-.nav {
-  height: 6vh;
-}
+
 .rightOptions {
   width: max-content;
   height: 6vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  border: 1px solid;
 }
 .connect {
   font-size: 12px;
@@ -63,19 +61,21 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: 45px;
+  align-items: center;
+  width: 65px;
   height: 100%;
-  padding: 0;
-  margin-left: 10px;
   cursor: pointer;
+  border: 1px solid white;
+  padding-bottom: 8px;
 }
+
 .itemsNb {
   color: orange;
   position: absolute;
   width: max-content;
   font-weight: bold;
   left: 60%;
-  top: 5px;
+  top: 0;
   transform: translate(-45%);
 }
 /* Search  */
@@ -113,6 +113,17 @@
 .magnifyingGlass {
   color: black;
   font-size: 26px;
+}
+@media screen and (min-width: 960px) {
+  .search {
+    top: 2vh;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%);
+  }
+  .magnifyingGlassContainer {
+    width: 3vw;
+  }
 }
 
 /* Choice */
