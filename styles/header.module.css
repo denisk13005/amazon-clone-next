@@ -38,13 +38,17 @@
 /* Right Options  */
 
 .rightOptions {
-  width: max-content;
+  width: 25%;
   height: 6vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid;
 }
+.mobileUserIcon {
+  display: flex;
+  align-items: center;
+}
+
 .connect {
   font-size: 12px;
   word-wrap: nowrap;
@@ -57,16 +61,42 @@
   font-size: 24px;
   cursor: pointer;
 }
+.desktopUserInfos {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  width: 66.66%;
+  justify-content: space-around;
+}
+.userDesktopAccount {
+  border: 1px solid transparent;
+  flex-grow: 1;
+}
+.userDesktopAccount:hover {
+  border: 1px solid white;
+}
+.userDesktopShipping {
+  border: 1px solid transparent;
+  flex-grow: 1;
+}
+.userDesktopShipping:hover {
+  border: 1px solid white;
+}
+/* .userDesktopAccount:hover {
+  border: 1px solid white;
+} */
 .basketContainer {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 65px;
+  width: 33.33%;
   height: 100%;
   cursor: pointer;
-  border: 1px solid white;
   padding-bottom: 8px;
+}
+.basketContainer:hover {
+  border: 1px solid white;
 }
 
 .itemsNb {
@@ -74,9 +104,9 @@
   position: absolute;
   width: max-content;
   font-weight: bold;
-  left: 60%;
+  right: 50%;
   top: 0;
-  transform: translate(-45%);
+  transform: translate(80%);
 }
 /* Search  */
 
@@ -114,17 +144,6 @@
   color: black;
   font-size: 26px;
 }
-@media screen and (min-width: 960px) {
-  .search {
-    top: 2vh;
-    left: 50%;
-    width: 60%;
-    transform: translate(-50%);
-  }
-  .magnifyingGlassContainer {
-    width: 3vw;
-  }
-}
 
 /* Choice */
 
@@ -145,4 +164,29 @@
 }
 .span:hover {
   color: orange;
+}
+
+/* media querry  */
+@media screen and (min-width: 960px) {
+  .search {
+    top: 2vh;
+    left: 50%;
+    width: 60%;
+    transform: translate(-60%);
+  }
+  .magnifyingGlassContainer {
+    width: 3vw;
+  }
+  .mobileUserIcon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .desktopUserInfos {
+    display: none;
+  }
+  .rightOptions {
+    width: max-content;
+  }
 }

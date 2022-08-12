@@ -12,7 +12,8 @@ import { FaRegUser } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import Image from "next/image";
 const Header = () => {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
+  const [user, setUser] = useState("denis");
   const [basketItems, setBasketItems] = useState(0);
   // const navigate = useNavigate();
 
@@ -59,21 +60,34 @@ const Header = () => {
         className={styles.rightOptions}
         // onMouseEnter={closeModal}
       >
-        {logged ? (
-          <p>user</p>
-        ) : (
-          <>
-            <p
-              className={styles.connect}
-              // onClick={loggIn}
-            >
-              Se connecter {">"}
+        <div className={styles.mobileUserIcon}>
+          <p
+            className={styles.connect}
+            // onClick={loggIn}
+          >
+            {logged ? `${user}` : "Se connecter >"}
+          </p>
+
+          <span>
+            <FaRegUser className={styles.userIcon} />
+          </span>
+        </div>
+        <div className={styles.desktopUserInfos}>
+          <div className={styles.userDesktopAccount}>
+            <p>
+              Bonjour,{logged ? `${user}` : `Identifiez-vous`}
+              <br />
+              <span>Compte et listes </span>
             </p>
-          </>
-        )}
-        <span>
-          <FaRegUser className={styles.userIcon} />
-        </span>
+          </div>
+          <div className={styles.userDesktopShipping}>
+            {" "}
+            <p>
+              Retours <br />
+              <span>et commandes</span>{" "}
+            </p>
+          </div>
+        </div>
         <div className={styles.basketContainer}>
           <Image
             className={styles.basketImg}
