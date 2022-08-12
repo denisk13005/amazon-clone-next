@@ -8,11 +8,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default function Home({ best }) {
-  console.log(best.bestsellers.length);
+  // console.log(best.bestsellers.length);
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-    setProducts(best.bestsellers.splice(0, 45));
-  }, []);
+  // useEffect(() => {
+  //   setProducts(best.bestsellers.splice(0, 45));
+  // }, []);
   return (
     <div className={styles.container}>
       <Head>
@@ -42,13 +42,13 @@ export default function Home({ best }) {
     </div>
   );
 }
-export const getServerSideProps = async () => {
-  const data = await fetch(
-    "https://api.rainforestapi.com/request?api_key=71C75272191A49318764879A542638C6&type=bestsellers&url=https://www.amazon.com/s/zgbs/pc/516866"
-  ).then((res) => res.json());
-  return {
-    props: {
-      best: data,
-    },
-  };
-};
+// export const getServerSideProps = async () => {
+//   const data = await fetch(
+//     "https://api.rainforestapi.com/request?api_key=71C75272191A49318764879A542638C6&type=bestsellers&url=https://www.amazon.com/s/zgbs/pc/516866"
+//   ).then((res) => res.json());
+//   return {
+//     props: {
+//       best: data,
+//     },
+//   };
+// };
