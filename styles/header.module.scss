@@ -1,10 +1,10 @@
 .header {
   position: relative;
   width: 100%;
-  height: 19vh;
+  height: 180px;
   display: flex;
   justify-content: space-between;
-  background-color: #202c3a;
+  background-color: black;
   padding: 10px;
 }
 /* Left Options  */
@@ -170,15 +170,27 @@
 }
 
 /* Choice */
-
 .choiceContainer {
+  width: 100%;
+  background-color: #202c3a;
+  left: 0;
+  height: 4vh;
   position: absolute;
   bottom: 5px;
+}
+.choices {
+  position: absolute;
+  // bottom: 5px;
   height: 4vh;
   display: flex;
   overflow-x: auto;
   scrollbar-color: orange;
   width: 100%;
+  @media screen and (min-width: 960px) {
+    width: max-content;
+    left: 50%;
+    transform: translate(-50%);
+  }
 }
 .span {
   margin-right: 10px;
