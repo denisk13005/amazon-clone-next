@@ -92,14 +92,11 @@
     border: 1px solid white;
   }
 }
-// .userDesktopAccount:hover {
-//   border: 1px solid white;
-// }
-
-// .userDesktopShipping:hover {
-//   border: 1px solid white;
-// }
-
+.userLogin {
+  &:hover {
+    cursor: pointer;
+  }
+}
 .basketContainer {
   position: relative;
   display: flex;

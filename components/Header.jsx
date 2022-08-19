@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import styles from "../styles/header.module.scss"
-import Router from "next/router"
-// import basket from "../../assets/img/basket.png";
-// import search from "../../assets/img/search.svg";
-// import { useNavigate, Link } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import CompteModal from "../CompteModal/CompteModal";
+import { useRouter } from "next/router"
 import { GiHamburgerMenu, GiShoppingCart } from "react-icons/gi"
 import { FaRegUser } from "react-icons/fa"
 import { AiOutlineSearch } from "react-icons/ai"
@@ -14,32 +9,11 @@ import Image from "next/image"
 import { useSession } from "next-auth/react"
 
 const Header = () => {
+  const router = useRouter()
   const { data: session } = useSession()
   const [user, setUser] = useState("denis")
   const [basketItems, setBasketItems] = useState(0)
-  // const navigate = useNavigate();
 
-  //redux state
-  // const logged = useSelector((state) => state.user.userLoggedIn);
-  // const userLogged = useSelector((state) => state.user.informations[0]);
-  // const basketItems = useSelector((state) => state.products.basketItems);
-  //local state
-  // const [user, setUser] = useState("");
-  // const [compteModalClassName, setCompteModalClassName] = useState("none");
-
-  // const loggIn = () => {
-  //   navigate("/");
-  // };
-  // useEffect(() => {
-  //   userLogged && setUser(userLogged.name);
-  // }, [userLogged]);
-
-  // const openModal = () => {
-  //   setCompteModalClassName("visible");
-  // };
-  // const closeModal = () => {
-  //   setCompteModalClassName("none");
-  // };
   return (
     <header className={styles.header}>
       <div className={styles.leftOptions}>
@@ -63,10 +37,7 @@ const Header = () => {
         // onMouseEnter={closeModal}
       >
         <div className={styles.mobileUserIcon}>
-          <p
-            className={styles.connect}
-            // onClick={loggIn}
-          >
+          <p className={styles.connect} onClick={() => router.push("/login")}>
             {session ? `${session.user.name}` : "Se connecter >"}
           </p>
 
@@ -77,7 +48,13 @@ const Header = () => {
         <div className={styles.desktopUserInfos}>
           <div className={styles.userDesktopAccount}>
             <p>
-              Bonjour,{session ? `${session.user.name}` : `Identifiez-vous`}
+              Bonjour,
+              <span
+                className={styles.userLogin}
+                onClick={() => router.push("/login")}
+              >
+                {session ? `${session.user.name}` : `Identifiez-vous`}
+              </span>
               <br />
               <span>Compte et listes </span>
             </p>
