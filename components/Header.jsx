@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import styles from "../styles/header.module.css";
-import Router from "next/router";
+import React, { useEffect, useState } from "react"
+import Link from "next/link"
+import styles from "../styles/header.module.scss"
+import Router from "next/router"
 // import basket from "../../assets/img/basket.png";
 // import search from "../../assets/img/search.svg";
 // import { useNavigate, Link } from "react-router-dom";
 // import { useSelector } from "react-redux";
 // import CompteModal from "../CompteModal/CompteModal";
-import { GiHamburgerMenu, GiShoppingCart } from "react-icons/gi";
-import { FaRegUser } from "react-icons/fa";
-import { AiOutlineSearch } from "react-icons/ai";
-import Image from "next/image";
+import { GiHamburgerMenu, GiShoppingCart } from "react-icons/gi"
+import { FaRegUser } from "react-icons/fa"
+import { AiOutlineSearch } from "react-icons/ai"
+import Image from "next/image"
+import { useSession } from "next-auth/react"
+
 const Header = () => {
-  const [logged, setLogged] = useState(true);
-  const [user, setUser] = useState("denis");
-  const [basketItems, setBasketItems] = useState(0);
+  const { data: session } = useSession()
+  const [user, setUser] = useState("denis")
+  const [basketItems, setBasketItems] = useState(0)
   // const navigate = useNavigate();
 
   //redux state
@@ -65,7 +67,7 @@ const Header = () => {
             className={styles.connect}
             // onClick={loggIn}
           >
-            {logged ? `${user}` : "Se connecter >"}
+            {session ? `${session.user.name}` : "Se connecter >"}
           </p>
 
           <span>
@@ -75,13 +77,12 @@ const Header = () => {
         <div className={styles.desktopUserInfos}>
           <div className={styles.userDesktopAccount}>
             <p>
-              Bonjour,{logged ? `${user}` : `Identifiez-vous`}
+              Bonjour,{session ? `${session.user.name}` : `Identifiez-vous`}
               <br />
               <span>Compte et listes </span>
             </p>
           </div>
           <div className={styles.userDesktopShipping}>
-            {" "}
             <p>
               Retours <br />
               <span>et commandes</span>{" "}
@@ -123,7 +124,7 @@ const Header = () => {
         <span className={styles.span}>High-Tech</span>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

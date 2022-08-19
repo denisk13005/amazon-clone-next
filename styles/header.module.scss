@@ -22,6 +22,9 @@
 .hambIcon {
   font-size: 24px;
   cursor: pointer;
+  @media screen and (min-width: 960px) {
+    display: none;
+  }
 }
 .logo {
   width: 80px;
@@ -29,6 +32,10 @@
   margin-top: 10px;
   margin-left: 10px;
   cursor: pointer;
+  @media screen and (min-width: 960px) {
+    width: 125px;
+    height: 35px;
+  }
 }
 .fr {
   margin-bottom: 2px;
@@ -38,11 +45,13 @@
 /* Right Options  */
 
 .rightOptions {
-  width: 25%;
+  width: 28%;
   height: 6vh;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+
+  @media screen {
+  }
 }
 .mobileUserIcon {
   display: flex;
@@ -65,38 +74,53 @@
   font-size: 12px;
   display: flex;
   flex-direction: row;
-  width: 66.66%;
+  width: 80%;
+  height: 100%;
   justify-content: space-around;
+  p {
+    margin: 0;
+  }
 }
-.userDesktopAccount {
-  border: 1px solid transparent;
-  flex-grow: 1;
-}
-.userDesktopAccount:hover {
-  border: 1px solid white;
-}
+.userDesktopAccount,
 .userDesktopShipping {
   border: 1px solid transparent;
+  display: flex;
+  align-items: center;
   flex-grow: 1;
+  height: 100%;
+  &:hover {
+    border: 1px solid white;
+  }
 }
-.userDesktopShipping:hover {
-  border: 1px solid white;
-}
-/* .userDesktopAccount:hover {
-  border: 1px solid white;
-} */
+// .userDesktopAccount:hover {
+//   border: 1px solid white;
+// }
+
+// .userDesktopShipping:hover {
+//   border: 1px solid white;
+// }
+
 .basketContainer {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 33.33%;
+  width: 20%;
   height: 100%;
   cursor: pointer;
   padding-bottom: 8px;
-}
-.basketContainer:hover {
-  border: 1px solid white;
+  &:hover {
+    border: 1px solid white;
+    .itemsNb {
+      top: -1px;
+    }
+    @media screen and (max-width: 960px) {
+      border: none;
+      .itemsNb {
+        top: 0;
+      }
+    }
+  }
 }
 
 .itemsNb {
@@ -107,6 +131,9 @@
   right: 50%;
   top: 0;
   transform: translate(80%);
+  @media screen and (max-width: 960px) {
+    font-size: 12px;
+  }
 }
 /* Search  */
 
@@ -152,7 +179,7 @@
   bottom: 5px;
   height: 4vh;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   scrollbar-color: orange;
   width: 100%;
 }
@@ -171,7 +198,7 @@
   .search {
     top: 2vh;
     left: 50%;
-    width: 60%;
+    width: 50%;
     transform: translate(-60%);
   }
   .magnifyingGlassContainer {

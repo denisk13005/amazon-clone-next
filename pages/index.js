@@ -1,15 +1,16 @@
-import Head from "next/head";
-import Image from "next/image";
-import Header from "../components/Header";
-import styles from "../styles/Home.module.css";
-import Product from "../components/Product";
-import { GiH2O } from "react-icons/gi";
-import { useState } from "react";
-import { useEffect } from "react";
+import Head from "next/head"
+import Image from "next/image"
+import Header from "../components/Header"
+import styles from "../styles/Home.module.css"
+import Product from "../components/Product"
+import { GiH2O } from "react-icons/gi"
+import { useState } from "react"
+import { useEffect } from "react"
 
 export default function Home({ best }) {
+  console.log(best)
   // console.log(best.bestsellers.length);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
   // useEffect(() => {
   //   setProducts(best.bestsellers.splice(0, 45));
   // }, []);
@@ -40,15 +41,16 @@ export default function Home({ best }) {
         </section>
       </main> */}
     </div>
-  );
+  )
 }
-// export const getServerSideProps = async () => {
-//   const data = await fetch(
-//     "https://api.rainforestapi.com/request?api_key=71C75272191A49318764879A542638C6&type=bestsellers&url=https://www.amazon.com/s/zgbs/pc/516866"
-//   ).then((res) => res.json());
-//   return {
-//     props: {
-//       best: data,
-//     },
-//   };
-// };
+export const getServerSideProps = async () => {
+  const data = await fetch(
+    "https://testdeploynodedk.herokuapp.com/api/stuff"
+  ).then((res) => res.json())
+
+  return {
+    props: {
+      best: data,
+    },
+  }
+}
