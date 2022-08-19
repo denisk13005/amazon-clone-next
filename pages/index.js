@@ -21,7 +21,16 @@ export default function Home({ best }) {
         <meta name="description" content="Amazon clone project" />
         <link rel="icon" href="./favicon.png" />
       </Head>
-      <section className={styles.galeryContainer}>galery container</section>
+      <section className={styles.galeryContainer}>
+        galery container
+        <Image
+          src="/test.jpg"
+          width="100%"
+          height="30%"
+          alt="img"
+          layout="responsive"
+        />
+      </section>
       <section className={styles.productsContainer}>Products container</section>
     </div>
   )
