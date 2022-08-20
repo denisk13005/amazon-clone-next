@@ -1,5 +1,23 @@
 .homeContainer {
   width: 100%;
   height: auto;
-  border: 1px solid red;
+  border: 1px solid rgb(121, 161, 69);
+  position: relative;
+}
+.homeContainer {
+  max-width: 1500px;
+  margin: auto;
+}
+.galeryContainer {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+}
+.productsContainer {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
