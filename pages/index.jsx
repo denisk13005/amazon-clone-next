@@ -6,9 +6,10 @@ import Product from "../components/Product"
 import { GiH2O } from "react-icons/gi"
 import { useState } from "react"
 import { useEffect } from "react"
-import ProductContainer from "../components/ProductContainer"
+import CategoryContainer from "../components/CategoryContainer"
 
 export default function Home({ allProducts, electronics, jewelery }) {
+  const [login, setLogin] = useState(true)
   console.log(allProducts, electronics, jewelery)
   // console.log(best.bestsellers.length);
   const [products, setProducts] = useState([])
@@ -26,11 +27,23 @@ export default function Home({ allProducts, electronics, jewelery }) {
         <section className={styles.galeryContainer}>
           <Image src="/fond.webp" layout="fill" />
         </section>
-        <section className={styles.productsContainer}>
-          {allProducts &&
-            allProducts.map((product) => (
-              <ProductContainer key={product.title} product={product} />
-            ))}
+        <section className={styles.categorySection}>
+          <CategoryContainer
+            products={electronics}
+            title={"Electronics"}
+            background={"#b9e2f6"}
+          />
+          <CategoryContainer
+            products={jewelery}
+            title={"Jewelery"}
+            background={"rgba(0,164,180,.05)"}
+          />
+          <CategoryContainer />
+          {login ? <CategoryContainer /> : <CategoryContainer />}
+          <CategoryContainer />
+          <CategoryContainer />
+          <CategoryContainer />
+          <CategoryContainer />
         </section>
       </main>
     </div>

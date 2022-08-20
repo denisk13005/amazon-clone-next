@@ -13,11 +13,12 @@
   width: 100%;
   height: 80vh;
 }
-.productsContainer {
+.categorySection {
   position: absolute;
   top: 35%;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  background-color: transparent;
 }
