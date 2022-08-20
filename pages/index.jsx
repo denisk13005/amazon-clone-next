@@ -54,7 +54,7 @@ export default function Home({ allProducts }) {
             products={allProducts.filter(
               (product) => product.category === "women's clothing"
             )}
-            title={"Men's clothes"}
+            title={"Women's clothes"}
             background={"rgba(0,164,180,.05)"}
           />
         </section>
