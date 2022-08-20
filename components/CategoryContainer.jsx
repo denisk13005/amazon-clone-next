@@ -30,7 +30,7 @@ const CategoryContainer = ({ products, title, background }) => {
           ))}
       </div>
       <div className={styles.categoryLink}>
-        <Link href={`/${products && products[0].category}`}>
+        <Link href={`/${products && products[0].category.split(`'`)[0]}`}>
           En savoir plus
         </Link>
       </div>

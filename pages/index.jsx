@@ -8,10 +8,11 @@ import { useState } from "react"
 import { useEffect } from "react"
 import CategoryContainer from "../components/CategoryContainer"
 
-export default function Home({ allProducts, electronics, jewelery }) {
+export default function Home({ allProducts }) {
+  const test = allProducts.filter((el) => el.category === "men's clothing")
+  console.log(test[0].category.split(`'`)[0])
   const [login, setLogin] = useState(true)
-  console.log(allProducts, electronics, jewelery)
-  // console.log(best.bestsellers.length);
+
   const [products, setProducts] = useState([])
   // useEffect(() => {
   //   setProducts(best.bestsellers.splice(0, 45));
@@ -29,21 +30,33 @@ export default function Home({ allProducts, electronics, jewelery }) {
         </section>
         <section className={styles.categorySection}>
           <CategoryContainer
-            products={electronics}
+            products={allProducts.filter(
+              (product) => product.category === "electronics"
+            )}
             title={"Electronics"}
             background={"#b9e2f6"}
           />
           <CategoryContainer
-            products={jewelery}
+            products={allProducts.filter(
+              (product) => product.category === "jewelery"
+            )}
             title={"Jewelery"}
             background={"rgba(0,164,180,.05)"}
           />
-          <CategoryContainer />
-          {login ? <CategoryContainer /> : <CategoryContainer />}
-          <CategoryContainer />
-          <CategoryContainer />
-          <CategoryContainer />
-          <CategoryContainer />
+          <CategoryContainer
+            products={allProducts.filter(
+              (product) => product.category === "men's clothing"
+            )}
+            title={"Men's clothes"}
+            background={"rgba(0,164,180,.05)"}
+          />
+          <CategoryContainer
+            products={allProducts.filter(
+              (product) => product.category === "women's clothing"
+            )}
+            title={"Men's clothes"}
+            background={"rgba(0,164,180,.05)"}
+          />
         </section>
       </main>
     </div>
@@ -53,18 +66,10 @@ export const getServerSideProps = async () => {
   const allProducts = await fetch("https://fakestoreapi.com/products").then(
     (res) => res.json()
   )
-  const electronics = await fetch(
-    "https://fakestoreapi.com/products/category/electronics"
-  ).then((res) => res.json())
-  const jewelery = await fetch(
-    "https://fakestoreapi.com/products/category/jewelery"
-  ).then((res) => res.json())
 
   return {
     props: {
       allProducts,
-      electronics,
-      jewelery,
     },
   }
 }
