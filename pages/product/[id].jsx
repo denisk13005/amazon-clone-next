@@ -1,3 +1,4 @@
+import Image from "next/image"
 import React from "react"
 import styles from "../../styles/Product.module.scss"
 
@@ -5,7 +6,9 @@ const Product = ({ product }) => {
   console.log(product)
   return (
     <div className={styles.productContainer}>
-      <h1>{product.title}</h1>
+      <div className={styles.imgProductContainer}>
+        <Image src={product.image} layout="fill" alt={product.title} />
+      </div>
     </div>
   )
 }
