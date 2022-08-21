@@ -23,6 +23,8 @@ const TypeOfCategory = ({ products }) => {
                   objectFit="contain"
                 />
               </div>
+              <p className={styles.typeOfCategoryTitle}>{product.title}</p>
+              <div className={styles.productRatingContainer}></div>
             </div>
           ))}
       </div>
