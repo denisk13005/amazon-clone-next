@@ -12,20 +12,20 @@ const HomeCategoryContainer = ({ products, title, background }) => {
         {products &&
           products.slice(0, 4).map((product) => (
             <div className={styles.productContainer} key={product.id}>
-              {/* <Link href={`/product`}> */}
-              <div
-                className={styles.productImageContainer}
-                style={{ backgroundColor: `${background} ` }}
-              >
-                <Image
-                  src={product.image}
-                  layout="fill"
-                  objectFit="contain"
-                  alt={`photo de ${product.title}`}
-                />
-              </div>
+              <Link href="/product/[id]" as={`/product/${product.id}`} passhref>
+                <div
+                  className={styles.productImageContainer}
+                  style={{ backgroundColor: `${background} ` }}
+                >
+                  <Image
+                    src={product.image}
+                    layout="fill"
+                    objectFit="contain"
+                    alt={`photo de ${product.title}`}
+                  />
+                </div>
+              </Link>
               <p className={styles.productTitle}>{product.title}</p>
-              {/* </Link> */}
             </div>
           ))}
       </div>
