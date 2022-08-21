@@ -6,7 +6,7 @@ import Product from "../components/Product"
 import { GiH2O } from "react-icons/gi"
 import { useState } from "react"
 import { useEffect } from "react"
-import CategoryContainer from "../components/CategoryContainer"
+import HomeCategoryContainer from "../components/HomeCategoryContainer"
 
 export default function Home({ allProducts }) {
   const [login, setLogin] = useState(true)
@@ -24,31 +24,31 @@ export default function Home({ allProducts }) {
       </Head>
       <main className={styles.mainContainer}>
         <section className={styles.galeryContainer}>
-          <Image src="/fond.webp" layout="fill" />
+          <Image src="/fond.webp" layout="fill" alt="test" />
         </section>
         <section className={styles.categorySection}>
-          <CategoryContainer
+          <HomeCategoryContainer
             products={allProducts.filter(
               (product) => product.category === "electronics"
             )}
             title={"Electronics"}
             background={"#b9e2f6"}
           />
-          <CategoryContainer
+          <HomeCategoryContainer
             products={allProducts.filter(
               (product) => product.category === "jewelery"
             )}
             title={"Jewelery"}
             background={"rgba(0,164,180,.05)"}
           />
-          <CategoryContainer
+          <HomeCategoryContainer
             products={allProducts.filter(
               (product) => product.category === "men's clothing"
             )}
             title={"Men's clothes"}
             background={"rgba(0,164,180,.05)"}
           />
-          <CategoryContainer
+          <HomeCategoryContainer
             products={allProducts.filter(
               (product) => product.category === "women's clothing"
             )}

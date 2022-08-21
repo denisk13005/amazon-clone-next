@@ -1,8 +1,13 @@
 import React from "react"
+import styles from "../../styles/TypeOfCategory.module.scss"
 
 const TypeOfCategory = ({ datas }) => {
   console.log(datas)
-  return <div>type Of category</div>
+  return (
+    <section className={styles.typeOfCategoryContainer}>
+      type Of category
+    </section>
+  )
 }
 
 export const getServerSideProps = async ({ params }) => {

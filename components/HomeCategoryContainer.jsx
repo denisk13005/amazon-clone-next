@@ -1,9 +1,9 @@
 import React from "react"
 import Image from "next/image"
-import styles from "../styles/categoryContainer.module.scss"
+import styles from "../styles/homeCategoryContainer.module.scss"
 import Link from "next/link"
 
-const CategoryContainer = ({ products, title, background }) => {
+const HomeCategoryContainer = ({ products, title, background }) => {
   console.log(background)
   return (
     <div className={styles.categoryContainer}>
@@ -42,4 +42,4 @@ const CategoryContainer = ({ products, title, background }) => {
   )
 }
 
-export default CategoryContainer
+export default HomeCategoryContainer
