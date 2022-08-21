@@ -19,12 +19,19 @@ const TypeOfCategory = ({ products }) => {
                   className={styles.typeOfCategoryImg}
                   src={`${product.image}`}
                   layout="fill"
-                  alt={`${product.title}`}
                   objectFit="contain"
+                  alt={`${product.title}`}
                 />
               </div>
-              <p className={styles.typeOfCategoryTitle}>{product.title}</p>
-              <div className={styles.productRatingContainer}></div>
+              <div className={styles.typeOfCategoryProductDescriptionContainer}>
+                <p className={styles.typeOfCategoryTitle}>{product.title}</p>
+                <div className={styles.productRatingContainer}>
+                  <span>{product.rating.rate}⭐</span>{" "}
+                  <span>{product.rating.count}</span>
+                </div>
+                <div className={styles.productPrice}>{product.price} €</div>
+                <button className={styles.button}>Ajouter au panier</button>
+              </div>
             </div>
           ))}
       </div>
