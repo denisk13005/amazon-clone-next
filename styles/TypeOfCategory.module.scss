@@ -1,5 +1,35 @@
+.typeOfCategoryBody {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
 .typeOfCategoryContainer {
   width: 100%;
   height: 500px;
-  background-color: aquamarine;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1500px;
+  margin: auto;
+}
+.typeOfCategoryProductContainer {
+  width: 25%;
+  height: 450px;
+  border: 1px solid red;
+  margin-bottom: 20px;
+  color: black;
+  &:hover {
+    background-color: #eaeded;
+    .typeOfCategoryImg {
+      transform: scale(1.05);
+    }
+  }
+}
+.typeOfCategoryImgContainer {
+  width: 100%;
+  height: 60%;
+  border: 1px solid red;
+  position: relative;
+}
+.typeOfCategoryImg {
+  transition: transform 0.2s ease;
 }

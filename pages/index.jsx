@@ -60,7 +60,7 @@ export default function Home({ allProducts }) {
     </div>
   )
 }
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const allProducts = await fetch("https://fakestoreapi.com/products").then(
     (res) => res.json()
   )
@@ -69,5 +69,6 @@ export const getServerSideProps = async () => {
     props: {
       allProducts,
     },
+    revalidate: 30000,
   }
 }
