@@ -9,8 +9,6 @@ import { useEffect } from "react"
 import CategoryContainer from "../components/CategoryContainer"
 
 export default function Home({ allProducts }) {
-  const test = allProducts.filter((el) => el.category === "men's clothing")
-  console.log(test[0].category.split(`'`)[0])
   const [login, setLogin] = useState(true)
 
   const [products, setProducts] = useState([])

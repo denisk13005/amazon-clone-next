@@ -1,7 +1,7 @@
 import React from "react"
 
-const CategoryPageContainer = () => {
-  return <div></div>
+const CategoryPageContainer = ({products}) => {
+  return <div className={styles.categoryPageContainer}></div>
 }
 
 export default CategoryPageContainer
