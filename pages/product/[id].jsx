@@ -8,7 +8,11 @@ const Product = ({ product }) => {
   return (
     <div className={styles.productContainer}>
       <div className={styles.imgProductContainer}>
-        <Image src={product.image} layout="fill" alt={product.title} />
+        <Image
+          src={product && product.image}
+          layout="fill"
+          alt={product && product.title}
+        />
       </div>
     </div>
   )
