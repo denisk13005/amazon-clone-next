@@ -2,6 +2,7 @@ import React from "react"
 import styles from "../../styles/TypeOfCategory.module.scss"
 import Layout from "./../../components/Layout"
 import Image from "next/image"
+import Link from "next/link"
 
 const TypeOfCategory = ({ products }) => {
   console.log(products)
@@ -14,15 +15,17 @@ const TypeOfCategory = ({ products }) => {
               className={styles.typeOfCategoryProductContainer}
               key={product.id}
             >
-              <div className={styles.typeOfCategoryImgContainer}>
-                <Image
-                  className={styles.typeOfCategoryImg}
-                  src={`${product.image}`}
-                  layout="fill"
-                  objectFit="contain"
-                  alt={`${product.title}`}
-                />
-              </div>
+              <Link href="/product/[id]" as={`/product/${product.id}`} passHref>
+                <div className={styles.typeOfCategoryImgContainer}>
+                  <Image
+                    className={styles.typeOfCategoryImg}
+                    src={`${product.image}`}
+                    layout="fill"
+                    objectFit="contain"
+                    alt={`${product.title}`}
+                  />
+                </div>
+              </Link>
               <div className={styles.typeOfCategoryProductDescriptionContainer}>
                 <p className={styles.typeOfCategoryTitle}>{product.title}</p>
                 <div className={styles.productRatingContainer}>
