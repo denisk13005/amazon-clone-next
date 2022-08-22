@@ -24,7 +24,7 @@ const Product = ({ product }) => {
             <p className={styles.propos}>À propos de cet article :</p>
             <p className={styles.productDesc}>{product.description}</p>
           </div>
-          <aside className={styles.addProduct}>
+          <div className={styles.addProduct}>
             <p className={styles.productPrice}>{product.price} €</p>
             <div className={styles.shippingAddress}>addresse</div>
             <p className={styles.inStock}>En stock</p>
@@ -44,7 +44,7 @@ const Product = ({ product }) => {
               </select>
             </div>
             <button className={styles.addToBasket}>Ajouter au panier</button>
-          </aside>
+          </div>
         </main>
       )}
     </>

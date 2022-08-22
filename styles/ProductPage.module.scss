@@ -7,6 +7,12 @@
   max-width: 1500px;
   margin: auto;
   padding-top: 50px;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
 }
 .leftProductContainer {
   width: 35%;
@@ -14,6 +20,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 1200px) {
+    width: 50%;
+    height: 50vh;
+    order: 2;
+  }
+  @media screen and (max-width: 720px) {
+    width: 100%;
+  }
 }
 .imgProductContainer {
   width: 90%;
@@ -23,9 +37,15 @@
 .productPrice {
   font-size: 24px;
   font-weight: 600;
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
 }
 .rightDescriptioncontainer {
   width: 35%;
+  @media screen and (max-width: 1200px) {
+    width: 90%;
+  }
   .productRatingContainer {
     border-bottom: 1px solid lightgray;
     padding-bottom: 2px;
@@ -47,6 +67,12 @@
 .addProduct {
   width: 15%;
   padding: 20px;
+  @media screen and (max-width: 1200px) {
+    order: 3;
+    width: 50%;
+    position: relative;
+    right: 20%;
+  }
   .shippingAddress {
     margin-top: 20px;
   }
@@ -76,6 +102,10 @@
     background-color: rgb(243, 198, 0);
     color: black;
     cursor: pointer;
+    @media screen and (max-width: 1200px) {
+      width: 300px;
+      margin-left: 0;
+    }
     &:hover {
       background-color: darken($color: rgb(243, 198, 0), $amount: 2%);
     }
