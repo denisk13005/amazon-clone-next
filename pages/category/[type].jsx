@@ -4,7 +4,6 @@ import Layout from "./../../components/Layout"
 import Image from "next/image"
 
 const TypeOfCategory = ({ products }) => {
-  console.log(products)
   return (
     <section className={styles.typeOfCategoryBody}>
       <div className={styles.typeOfCategoryContainer}>
@@ -39,7 +38,14 @@ const TypeOfCategory = ({ products }) => {
   )
 }
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticPaths = async () => {
+  const datas = await fetch(
+    "https://fakestoreapi.com/products/categories"
+  ).then((res) => res.json())
+  const paths = datas.map((data) => ({ params: { type: data.toString() } }))
+  return { paths, fallback: true }
+}
+export const getStaticProps = async ({ params }) => {
   console.log(params)
   const type = params.type
   console.log(type)
@@ -50,6 +56,7 @@ export const getServerSideProps = async ({ params }) => {
     props: {
       products,
     },
+    revalidate: 8000,
   }
 }
 export default TypeOfCategory

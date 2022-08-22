@@ -38,6 +38,7 @@ export const getStaticProps = async ({ params }) => {
     props: {
       product,
     },
+    revalidate: 8000,
   }
 }
 export default Product
