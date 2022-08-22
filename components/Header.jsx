@@ -21,13 +21,16 @@ const Header = () => {
           <div className={styles.hambContainer}>
             <GiHamburgerMenu className={styles.hambIcon} />
           </div>
-          <Link href="/" passHref>
-            <img
-              className={styles.logo}
-              src="./favicon.png"
-              alt="amazon logo"
-            />
-          </Link>
+          <div className={styles.logoContainer}>
+            <Link href="/" passHref>
+              <Image
+                src="/favicon.png"
+                alt="amazon logo"
+                layout="fill"
+                objectFit="contain"
+              />
+            </Link>
+          </div>
           <span className={styles.fr}>.fr</span>
         </div>
       </div>
