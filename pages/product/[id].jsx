@@ -1,10 +1,15 @@
 import Image from "next/image"
 import React, { useState, useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { addProduct } from "../../redux/productsSlice"
 import styles from "../../styles/ProductPage.module.scss"
-import { useRouter } from "next/router"
-import { fetchData } from "next-auth/client/_utils"
 
 const Product = ({ product }) => {
+  const dispatch = useDispatch()
+  const addToBasket = () => {
+    console.log(product)
+    dispatch(addProduct(product))
+  }
   return (
     <>
       {product && (
@@ -43,7 +48,12 @@ const Product = ({ product }) => {
                 <option value="10">10</option>
               </select>
             </div>
-            <button className={styles.addToBasket}>Ajouter au panier</button>
+            <button
+              onClick={() => addToBasket()}
+              className={styles.addToBasket}
+            >
+              Ajouter au panier
+            </button>
           </div>
         </main>
       )}

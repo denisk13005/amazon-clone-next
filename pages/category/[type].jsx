@@ -3,9 +3,12 @@ import styles from "../../styles/TypeOfCategory.module.scss"
 import Layout from "./../../components/Layout"
 import Image from "next/image"
 import Link from "next/link"
+import { useDispatch } from "react-redux"
+import { addProduct } from "../../redux/productsSlice"
 
 const TypeOfCategory = ({ products }) => {
-  console.log(products)
+  const dispatch = useDispatch()
+
   return (
     <section className={styles.typeOfCategoryBody}>
       <div className={styles.typeOfCategoryContainer}>
@@ -33,7 +36,12 @@ const TypeOfCategory = ({ products }) => {
                   <span>{product.rating.count}</span>
                 </div>
                 <div className={styles.productPrice}>{product.price} €</div>
-                <button className={styles.button}>Ajouter au panier</button>
+                <button
+                  onClick={() => dispatch(addProduct(product))}
+                  className={styles.button}
+                >
+                  Ajouter au panier
+                </button>
               </div>
             </div>
           ))}

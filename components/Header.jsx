@@ -7,12 +7,14 @@ import { FaRegUser } from "react-icons/fa"
 import { AiOutlineSearch } from "react-icons/ai"
 import Image from "next/image"
 import { useSession } from "next-auth/react"
+import { useSelector } from "react-redux"
 
 const Header = () => {
+  const basketItems = useSelector((state) => state.products.basketItems)
   const router = useRouter()
   const { data: session } = useSession()
   const [user, setUser] = useState("denis")
-  const [basketItems, setBasketItems] = useState(0)
+  // const [basketItems, setBasketItems] = useState(0)
 
   return (
     <header className={styles.header}>
@@ -77,7 +79,7 @@ const Header = () => {
             width="50%"
             height="50%"
           />
-          <span className={styles.itemsNb}>10</span>
+          <span className={styles.itemsNb}>{basketItems}</span>
         </div>
       </nav>
       <div
