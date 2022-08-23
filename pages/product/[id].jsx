@@ -4,12 +4,24 @@ import { useDispatch } from "react-redux"
 import { addProduct } from "../../redux/productsSlice"
 import styles from "../../styles/ProductPage.module.scss"
 
-const Product = ({ product }) => {
+const Product = ({ datas }) => {
+  const [product, setProduct] = useState()
+
+  console.log(product)
+
   const dispatch = useDispatch()
   const addToBasket = () => {
     console.log(product)
     dispatch(addProduct(product))
+    console.log(product.qte)
   }
+  const modifyQte = (e) => {
+    setProduct({ ...product, qte: parseInt(e.target.value) })
+    console.log(product)
+  }
+  useEffect(() => {
+    setProduct({ ...datas, qte: 0 })
+  }, [datas])
   return (
     <>
       {product && (
@@ -35,7 +47,7 @@ const Product = ({ product }) => {
             <p className={styles.inStock}>En stock</p>
             <div className={styles.qte}>
               Quantité :{" "}
-              <select className={styles.selectQte}>
+              <select className={styles.selectQte} onChange={modifyQte}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -74,12 +86,12 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const id = params.id
-  const product = await fetch(`https://fakestoreapi.com/products/${id}`).then(
+  const datas = await fetch(`https://fakestoreapi.com/products/${id}`).then(
     (res) => res.json()
   )
   return {
     props: {
-      product,
+      datas,
     },
     revalidate: 8000,
   }

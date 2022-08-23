@@ -18,14 +18,14 @@ const productsSlice = createSlice({
         // if the product is already in the basket, we just add the quantity
         state.products.forEach((product) => {
           if (product.id === action.payload.id) {
-            product.qte++
+            product.qte = product.qte + action.payload.qte
           }
         })
       }
       // if the product is not in the basket, we add it
       else {
         let product = action.payload
-        product.qte = 1
+        // product.qte = 1
         state.products = [...state.products, product]
       }
       //on incrémente le nb d'items dans le panier
