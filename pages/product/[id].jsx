@@ -20,7 +20,7 @@ const Product = ({ datas }) => {
     console.log(product)
   }
   useEffect(() => {
-    setProduct({ ...datas, qte: 0 })
+    setProduct({ ...datas, qte: 1 })
   }, [datas])
   return (
     <>

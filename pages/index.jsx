@@ -20,7 +20,7 @@ export default function Home({ allProducts }) {
       <Head>
         <title>Amazon next clone</title>
         <meta name="description" content="Amazon clone project" />
-        <link rel="icon" href="./favicon.png" />
+        <link rel="icon" href="./basket.png" />
       </Head>
       <main className={styles.mainContainer}>
         <section className={styles.galeryContainer}>
