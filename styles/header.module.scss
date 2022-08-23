@@ -129,10 +129,11 @@
 .itemsNb {
   color: orange;
   position: absolute;
-  width: max-content;
+  width: 25px;
   font-weight: bold;
   right: 50%;
   top: 0;
+  text-align: center;
   transform: translate(80%);
   @media screen and (max-width: 960px) {
     font-size: 12px;
