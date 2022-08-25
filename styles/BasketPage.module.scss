@@ -1,9 +1,5 @@
-.mainBasket {
-  width: 100%;
-  height: 100vh;
-  background-color: lightgray;
-}
-.emptyBasketSection {
+// ***********************************empty basket
+.emptyBasketMain {
   width: 80%;
   height: 350px;
   background-color: white;
@@ -33,4 +29,22 @@
       background-color: darken($color: #ffd814, $amount: 10%);
     }
   }
+}
+//*******************************************basket
+.basketPageMain {
+  border: 1px solid black;
+  width: 98vw;
+  height: 80vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+.productsContainer {
+  border: 1px solid red;
+  width: 83%;
+}
+.rightSection {
+  border: 1px solid blue;
+  width: 15%;
 }

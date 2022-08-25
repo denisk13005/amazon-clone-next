@@ -8,7 +8,7 @@ const Basket = () => {
   const products = useSelector((state) => state.products.products)
   console.log(products)
   return products.length === 0 ? (
-    <section className={styles.emptyBasketSection}>
+    <main className={styles.emptyBasketMain}>
       <div className={styles.emptyImgContainer}>
         <Image
           src="https://m.media-amazon.com/images/G/08/cart/empty/kettle-desaturated._CB424694058_.svg"
@@ -22,9 +22,12 @@ const Basket = () => {
           <button>{`Retournez à l'accueil`}</button>
         </Link>
       </div>
-    </section>
+    </main>
   ) : (
-    <section>1</section>
+    <main className={styles.basketPageMain}>
+      <section className={styles.productsContainer}></section>
+      <section className={styles.rightSection}></section>
+    </main>
   )
 }
 
