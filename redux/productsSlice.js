@@ -32,7 +32,9 @@ const productsSlice = createSlice({
       state.basketItems++
       //on met à jour le total
       const price = `${action.payload.price}.${action.payload.smallPrice}`
-      state.totalPrice = state.totalPrice + parseFloat(price)
+
+      state.totalPrice =
+        state.totalPrice + parseFloat(price) * `${action.payload.qte}`
     },
   },
 })
