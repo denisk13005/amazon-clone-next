@@ -71,16 +71,18 @@ const Header = () => {
             </p>
           </div>
         </div>
-        <div className={styles.basketContainer}>
-          <Image
-            className={styles.basketImg}
-            src="/basket.png"
-            alt="basket icon"
-            width="50%"
-            height="50%"
-          />
-          <span className={styles.itemsNb}>{basketItems}</span>
-        </div>
+        <Link href="/basket" passHref>
+          <div className={styles.basketContainer}>
+            <Image
+              className={styles.basketImg}
+              src="/basket.png"
+              alt="basket icon"
+              width="50%"
+              height="50%"
+            />
+            <span className={styles.itemsNb}>{basketItems}</span>
+          </div>
+        </Link>
       </nav>
       <div
         className={styles.search}
