@@ -1,7 +1,6 @@
 // ***********************************empty basket
 .emptyBasketMain {
   width: 80%;
-  height: 350px;
   background-color: white;
   margin: 200px 40px;
   display: flex;
@@ -32,19 +31,48 @@
 }
 //*******************************************basket
 .basketPageMain {
-  border: 1px solid black;
+  color: black;
   width: 98vw;
-  height: 80vh;
   margin: auto;
   display: flex;
   justify-content: space-between;
   margin-top: 100px;
 }
 .productsContainer {
-  border: 1px solid red;
   width: 83%;
+  background-color: white;
+  .header {
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    position: relative;
+    margin-top: 20px;
+    h2 {
+      font-weight: 500;
+      font-size: 28px;
+      margin: 0;
+    }
+    span {
+      position: absolute;
+      right: 0px;
+      bottom: 0;
+      color: rgb(151, 151, 151);
+    }
+  }
+  .subtotal {
+    width: 97%;
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+    padding: 20px 0px;
+  }
+  .subtotalPrice {
+    font-weight: bold;
+  }
 }
 .rightSection {
-  border: 1px solid blue;
   width: 15%;
+  background-color: white;
 }
