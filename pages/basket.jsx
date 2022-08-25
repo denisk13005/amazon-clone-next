@@ -13,9 +13,10 @@ const Basket = () => {
     <main className={styles.emptyBasketMain}>
       <div className={styles.emptyImgContainer}>
         <Image
-          src="https://m.media-amazon.com/images/G/08/cart/empty/kettle-desaturated._CB424694058_.svg"
+          src="/empty_basket.svg"
           alt="img"
           layout="fill"
+          objectFit="contain"
         />
       </div>
       <div className={styles.emptyTextContainer}>
