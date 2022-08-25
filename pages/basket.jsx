@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import styles from "../styles/BasketPage.module.scss"
 import { useSelector } from "react-redux"
 
@@ -17,7 +18,9 @@ const Basket = () => {
       </div>
       <div className={styles.emptyTextContainer}>
         <h3>Votre Panier Amazon est vide</h3>
-        <button>{`Retournez à l'accueil`}</button>
+        <Link href="/" passHref>
+          <button>{`Retournez à l'accueil`}</button>
+        </Link>
       </div>
     </section>
   ) : (
