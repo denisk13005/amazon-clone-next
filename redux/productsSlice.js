@@ -25,11 +25,11 @@ const productsSlice = createSlice({
       // if the product is not in the basket, we add it
       else {
         let product = action.payload
-        product.qte = 1
+        product.qte = action.payload.qte
         state.products = [...state.products, product]
       }
       //on incrémente le nb d'items dans le panier
-      state.basketItems++
+      state.basketItems += action.payload.qte
       //on met à jour le total
       const price = `${action.payload.price}.${action.payload.smallPrice}`
 
