@@ -34,9 +34,9 @@ const Basket = () => {
         </div>
 
         {products.map((product) => (
-          <>
+          <div key={product.title}>
             <BasketProduct product={product} />
-          </>
+          </div>
         ))}
         <div className={styles.subtotal}>
           <p>
