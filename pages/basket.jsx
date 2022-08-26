@@ -1,13 +1,37 @@
-import React from "react"
+import React, { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import styles from "../styles/BasketPage.module.scss"
 import { useSelector } from "react-redux"
 import BasketProduct from "../components/BasketProduct"
+import { loadStripe } from "@stripe/stripe-js"
+import axios from "axios"
 
 const Basket = () => {
   const products = useSelector((state) => state.products.products)
   const productsState = useSelector((state) => state.products)
+  const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  const stripePromise = loadStripe(publishableKey)
+
+  const [item, setItem] = useState({
+    name: "payment",
+    description: "payment for your order",
+    image: "./basket.png",
+    quantity: 1,
+    price: productsState.totalPrice,
+  })
+  const createCheckOutSession = async () => {
+    const stripe = await stripePromise
+    const checkoutSession = await axios.post("/api/create-stripe-session", {
+      item: item,
+    })
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    })
+    if (result.error) {
+      alert(result.error.message)
+    }
+  }
   return products.length === 0 ? (
     <main className={styles.emptyBasketMain}>
       <div className={styles.emptyImgContainer}>
@@ -64,7 +88,7 @@ const Basket = () => {
             </span>
           </p>
         </div>
-        <button>Passer la commande</button>
+        <button onClick={createCheckOutSession}>Passer la commande</button>
       </section>
     </main>
   )
