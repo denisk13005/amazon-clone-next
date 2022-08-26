@@ -16,11 +16,16 @@ const Basket = () => {
   const [item, setItem] = useState({
     name: "payment",
     description: "payment for your order",
-    image: "./basket.png",
+    image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
     quantity: 1,
     price: productsState.totalPrice,
   })
   const createCheckOutSession = async () => {
+    window.localStorage.removeItem("order")
+    window.localStorage.setItem(
+      "order",
+      JSON.stringify({ ...products, orderDate: new Date() })
+    )
     const stripe = await stripePromise
     const checkoutSession = await axios.post("/api/create-stripe-session", {
       item: item,
