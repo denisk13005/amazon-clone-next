@@ -1,15 +1,13 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Orders = () => {
   const [orders, setOrders] = useState()
 
-  useState(() => {
+  useEffect(() => {
     const loadOrders = () => {
-      if (window !== undefined) {
-        const datas = window.localStorage.getItem("order")
-        datas && setOrders(JSON.parse(datas))
-      }
+      const datas = window.localStorage.getItem("order")
+      datas && setOrders(JSON.parse(datas))
     }
     loadOrders()
   }, [])
