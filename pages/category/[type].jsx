@@ -37,7 +37,7 @@ const TypeOfCategory = ({ products }) => {
                 </div>
                 <div className={styles.productPrice}>{product.price} €</div>
                 <button
-                  onClick={() => dispatch(addProduct(product))}
+                  onClick={() => dispatch(addProduct({ ...product, qte: 1 }))}
                   className={styles.button}
                 >
                   Ajouter au panier
