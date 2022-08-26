@@ -24,7 +24,7 @@ const Basket = () => {
     window.localStorage.removeItem("order")
     window.localStorage.setItem(
       "order",
-      JSON.stringify({ ...products, orderDate: new Date() })
+      JSON.stringify({ products: [...products], orderDate: new Date() })
     )
     const stripe = await stripePromise
     const checkoutSession = await axios.post("/api/create-stripe-session", {
