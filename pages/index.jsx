@@ -7,14 +7,15 @@ import { GiH2O } from "react-icons/gi"
 import { useState } from "react"
 import { useEffect } from "react"
 import HomeCategoryContainer from "../components/HomeCategoryContainer"
+import { useRouter } from "next/router"
 
 export default function Home({ allProducts }) {
+  const router = useRouter()
+  router.query.status === "success" && console.log("success") // on transmettra les données de la commande a la bdd
   const [login, setLogin] = useState(true)
 
   const [products, setProducts] = useState([])
-  // useEffect(() => {
-  //   setProducts(best.bestsellers.splice(0, 45));
-  // }, []);
+
   return (
     <div className={styles.homeContainer}>
       <Head>
