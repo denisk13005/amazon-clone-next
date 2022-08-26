@@ -6,8 +6,10 @@ const Orders = () => {
 
   useState(() => {
     const loadOrders = () => {
-      const datas = window.localStorage.getItem("order")
-      datas && setOrders(JSON.parse(datas))
+      if (window !== undefined) {
+        const datas = window.localStorage.getItem("order")
+        datas && setOrders(JSON.parse(datas))
+      }
     }
     loadOrders()
   }, [])
