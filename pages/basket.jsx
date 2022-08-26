@@ -8,7 +8,6 @@ import BasketProduct from "../components/BasketProduct"
 const Basket = () => {
   const products = useSelector((state) => state.products.products)
   const productsState = useSelector((state) => state.products)
-  console.log(products)
   return products.length === 0 ? (
     <main className={styles.emptyBasketMain}>
       <div className={styles.emptyImgContainer}>
@@ -52,7 +51,21 @@ const Basket = () => {
           </p>
         </div>
       </section>
-      <section className={styles.rightSection}></section>
+      <section className={styles.rightSection}>
+        <div className={styles.subtotal}>
+          <p>
+            Sous-total{" "}
+            {`( ${productsState.basketItems} ${
+              productsState.basketItems == 1 ? "article" : "articles"
+            })`}
+            :
+            <span className={styles.subtotalPrice}>
+              {productsState.totalPrice} €
+            </span>
+          </p>
+        </div>
+        <button>Passer la commande</button>
+      </section>
     </main>
   )
 }

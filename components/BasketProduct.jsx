@@ -24,7 +24,6 @@ const BasketProduct = ({ product }) => {
 
         <div className={styles.priceContainer}>{product.price} €</div>
       </div>
-      <div className={styles.rightSection}></div>
     </div>
   )
 }

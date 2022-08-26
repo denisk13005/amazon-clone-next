@@ -75,5 +75,29 @@
 }
 .rightSection {
   width: 15%;
+  height: 200px;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .subtotal {
+    text-align: center;
+  }
+  .subtotalPrice {
+    font-weight: bold;
+  }
+  button {
+    display: inline;
+    width: 80%;
+    margin: 0 auto;
+    height: 30px;
+    background-color: #ffd814;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($color: #ffd814, $amount: 10%);
+    }
+  }
 }
