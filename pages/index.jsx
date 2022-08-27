@@ -8,10 +8,39 @@ import { useState } from "react"
 import { useEffect } from "react"
 import HomeCategoryContainer from "../components/HomeCategoryContainer"
 import { useRouter } from "next/router"
+import { useSession } from "next-auth/react"
+import { useSelector } from "react-redux"
 
 export default function Home({ allProducts }) {
   const router = useRouter()
-  router.query.status === "success" && console.log("success") // on transmettra les données de la commande a la bdd
+  const { data: session } = useSession()
+  // Fonction de sauvegarde de la commande en bdd
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const saveOrder = async () => {
+    const datas = await JSON.parse(window.localStorage.getItem("order"))
+    const products = await datas.products
+    const totalPrice = await datas.totalPrice
+    totalPrice && console.log(products, totalPrice)
+
+    await fetch("/api/orders/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        orderDate: new Date(),
+        userId: session && session.user.name,
+        totalPrice: totalPrice,
+        order: products,
+      }),
+    })
+    window.localStorage.removeItem("order")
+  }
+  // si on revient de la page de paiement stripe avec un message de succès on sauvegarde la commande en bdd
+  useEffect(() => {
+    router.query.status === "success" && saveOrder()
+  }, [router.query.status])
+
   const [login, setLogin] = useState(true)
 
   const [products, setProducts] = useState([])
