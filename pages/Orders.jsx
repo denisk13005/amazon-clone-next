@@ -18,10 +18,13 @@ const Orders = ({ orders }) => {
     <div>
       {orders &&
         orders.map((order) => (
-          <div key={order._id}>
+          <div key={order._id} style={{ border: "1px solid red" }}>
             <h1 style={{ color: "black" }}>{order.orderDate}</h1>
             {order.order.map((el) => (
-              <h1 key={el.title}>{el.title}</h1>
+              <>
+                <h1 key={el.title}>{el.title}</h1>
+                <img src={el.image} alt="" style={{ width: "50px" }} />
+              </>
             ))}
           </div>
         ))}
