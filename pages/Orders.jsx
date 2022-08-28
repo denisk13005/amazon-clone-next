@@ -32,7 +32,7 @@ export const getServerSideProps = async () => {
   let dev = process.env.NODE_ENV !== "production"
   let server = dev
     ? "http://localhost:3000"
-    : "https://nextjs-blog-app-with-mongodb-five.vercel.app/"
+    : "https://amazon-clone-next-jade.vercel.app"
   // request posts from api
   let response = await fetch(`${server}/api/orders/add`)
   // extract the data
