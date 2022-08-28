@@ -1,30 +1,26 @@
 import React from "react"
-import { useState, useEffect } from "react"
-import connectMongo from "../utils/connectMongo"
-import Order from "../models/ordersModel"
+import Image from "next/image"
+// import { useState, useEffect } from "react"
+// import connectMongo from "../utils/connectMongo"
+// import Order from "../models/ordersModel"
 
-const Orders = ({ orders }) => {
-  console.log(orders)
-  // const [orders, setOrders] = useState()
+const Orders = ({ data }) => {
+  console.log(data)
+  const datas = data.message
 
-  // useEffect(() => {
-  //   const loadOrders = () => {
-  //     const datas = window.localStorage.getItem("order")
-  //     datas && setOrders(JSON.parse(datas))
-  //   }
-  //   loadOrders()
-  // }, [])
   return (
     <div>
-      {orders &&
-        orders.map((order) => (
-          <div key={order._id} style={{ border: "1px solid red" }}>
-            <h1 style={{ color: "black" }}>{order.orderDate}</h1>
-            {order.order.map((el) => (
-              <>
-                <h1 key={el.title}>{el.title}</h1>
-                <img src={el.image} alt="" style={{ width: "50px" }} />
-              </>
+      {datas &&
+        datas.map((orders) => (
+          <div key={orders._id} style={{ color: "black" }}>
+            {orders.order.map((el) => (
+              <Image
+                src={el.image}
+                width={50}
+                height={50}
+                key={el.title}
+                alt={"image"}
+              />
             ))}
           </div>
         ))}
@@ -33,25 +29,20 @@ const Orders = ({ orders }) => {
 }
 
 export const getServerSideProps = async () => {
-  try {
-    console.log("CONNECTING TO MONGO")
-    await connectMongo()
-    console.log("CONNECTED TO MONGO")
+  let dev = process.env.NODE_ENV !== "production"
+  let server = dev
+    ? "http://localhost:3000"
+    : "https://nextjs-blog-app-with-mongodb-five.vercel.app/"
+  // request posts from api
+  let response = await fetch(`${server}/api/orders/add`)
+  // extract the data
+  let data = await response.json()
+  console.log(data)
 
-    console.log("FETCHING DOCUMENTS")
-    const orders = await Order.find()
-    console.log("FETCHED DOCUMENTS")
-
-    return {
-      props: {
-        orders: JSON.parse(JSON.stringify(orders)),
-      },
-    }
-  } catch (error) {
-    console.log(error)
-    return {
-      notFound: true,
-    }
+  return {
+    props: {
+      data,
+    },
   }
 }
 

@@ -10,7 +10,6 @@ import HomeCategoryContainer from "../components/HomeCategoryContainer"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 import { useSelector } from "react-redux"
-
 export default function Home({ allProducts }) {
   const router = useRouter()
   const { data: session } = useSession()
