@@ -13,16 +13,18 @@ import { useSelector } from "react-redux"
 export default function Home({ allProducts }) {
   const router = useRouter()
   const { data: session } = useSession()
-  // Fonction de sauvegarde de la commande en bdd
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const [nbOrders, setnbOrders] = useState()
+  console.log(nbOrders)
   const saveOrder = async () => {
     const datas = await JSON.parse(window.localStorage.getItem("order"))
     const products = await datas.products
     const totalPrice = await datas.totalPrice
-    totalPrice && console.log(products, totalPrice)
-
-    await fetch("/api/orders/add", {
-      method: "POST",
+    let dev = process.env.NODE_ENV !== "production"
+    let server = dev
+      ? "http://localhost:3000"
+      : "https://amazon-clone-next-jade.vercel.app"
+    await fetch(`${server}/api/orders`, {
+      method: `${nbOrders === 0 ? "POST" : "PUT"} `,
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,6 +42,17 @@ export default function Home({ allProducts }) {
     router.query.status === "success" && saveOrder()
   }, [router.query.status])
 
+  useEffect(() => {
+    const getOrder = async () => {
+      let dev = process.env.NODE_ENV !== "production"
+      let server = dev
+        ? "http://localhost:3000"
+        : "https://amazon-clone-next-jade.vercel.app"
+      const data = await fetch(`${server}/api/orders`).then((res) => res.json())
+      setnbOrders(data.message[0].order.length)
+    }
+    getOrder()
+  }, [])
   const [login, setLogin] = useState(true)
 
   const [products, setProducts] = useState([])

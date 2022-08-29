@@ -34,7 +34,7 @@ export const getServerSideProps = async () => {
     ? "http://localhost:3000"
     : "https://amazon-clone-next-jade.vercel.app"
   // request posts from api
-  let response = await fetch(`${server}/api/orders/add`)
+  let response = await fetch(`${server}/api/orders`)
   // extract the data
   let data = await response.json()
   console.log(data)
