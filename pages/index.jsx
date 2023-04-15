@@ -24,7 +24,7 @@ export default function Home({ allProducts }) {
       ? "http://localhost:3000"
       : "https://amazon-clone-next-jade.vercel.app"
     await fetch(`${server}/api/orders`, {
-      method: `${nbOrders === 0 ? "POST" : "PUT"} `,
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -33,8 +33,10 @@ export default function Home({ allProducts }) {
         userId: session && session.user.name,
         totalPrice: totalPrice,
         order: products,
+        id: "test",
       }),
     })
+
     window.localStorage.removeItem("order")
   }
   // si on revient de la page de paiement stripe avec un message de succès on sauvegarde la commande en bdd
@@ -43,13 +45,17 @@ export default function Home({ allProducts }) {
   }, [router.query.status])
 
   useEffect(() => {
+    console.log(session, "session")
     const getOrder = async () => {
       let dev = process.env.NODE_ENV !== "production"
       let server = dev
         ? "http://localhost:3000"
         : "https://amazon-clone-next-jade.vercel.app"
       const data = await fetch(`${server}/api/orders`).then((res) => res.json())
-      setnbOrders(data.message[0].order.length)
+      console.log(data.message)
+      data && data.message == 0
+        ? setnbOrders(0)
+        : setnbOrders(data.message.length)
     }
     getOrder()
   }, [])

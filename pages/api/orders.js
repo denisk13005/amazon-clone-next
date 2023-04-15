@@ -2,7 +2,7 @@ const { connectToDatabase } = require("../../lib/connectMongo")
 
 export default async function hendler(req, res) {
   let { db } = await connectToDatabase()
-  console.log(db)
+  console.log("db", db)
   switch (req.method) {
     case "GET": {
       async function getOrders(req, res) {
@@ -55,7 +55,7 @@ export default async function hendler(req, res) {
         try {
           const datas = await db
             .collection("orders")
-            .find({ userId: null })
+            .find({ id: "test" })
             .toArray()
           const orderModify = datas[0].order
           await db
